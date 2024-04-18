@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css'
-import { render } from '@testing-library/react'
+import Accordion from './components/Accordion/Accordion'
+import { Rating } from './components/Accordion/Rating'
 
 // function declaration
 function App() {
@@ -8,61 +9,26 @@ function App() {
 	// что то полезное делает, обязана вернуть JSX
 	return (
 		<div>
-			<AppTitle />
-			<Rating />
-			<Accordion />
-			<Rating />
+			<PageTitle title={'This is APP component'} />
+			<PageTitle title={'My frends'} />
+			Article 1
+			<Rating value={3} />
+			<Accordion title={'1 заголовок'} />
+			<Accordion title={'2 заголовок'} />
+			Article 2
+			<Rating value={0} />
+			<Rating value={1} />
+			<Rating value={2} />
+			<Rating value={3} />
+			<Rating value={4} />
+			<Rating value={5} />
 		</div>
 	)
 }
 
-function AppTitle() {
-	console.log('AppTitle rendering')
-	return <>This is APP component</>
-}
-
-function Rating() {
-	console.log('Rating rendering')
-	return (
-		<>
-			<Star />
-			<Star />
-			<Star />
-			<Star />
-			<Star />
-		</>
-	)
-}
-
-function Accordion() {
-	console.log('Accordion rendering')
-	return (
-		<>
-			<AccordionTitle />
-			<AccordionBody />
-		</>
-	)
-}
-
-function Star() {
-	console.log('Star rendering')
-	return <div>Star</div>
-}
-
-function AccordionTitle() {
-	console.log('AccordionTitle rendering')
-	return <h3>Меню</h3>
-}
-
-function AccordionBody() {
-	console.log('AccordionBody rendering')
-	return (
-		<ul>
-			<li>1</li>
-			<li>2</li>
-			<li>3</li>
-		</ul>
-	)
+function PageTitle(props: any) {
+	console.log('PageTitle rendering')
+	return <h1>{props.title}</h1>
 }
 
 export default App
